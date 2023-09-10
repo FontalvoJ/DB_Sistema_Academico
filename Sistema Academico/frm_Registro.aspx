@@ -55,11 +55,13 @@
                                         </div>
 
                                         <div class="form-outline mb-2">
-                                            <asp:DropDownList ID="ddl_estrato" runat="server" class="form-control form-control-sm" placeholder="Stratum"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddl_estrato" runat="server" class="form-control form-control-sm" placeholder="Stratum" DataSourceID="estrato" DataTextField="nombre" DataValueField="nombre"></asp:DropDownList>
+                                            <asp:SqlDataSource ID="estrato" runat="server" ConnectionString="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString %>" ProviderName="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString.ProviderName %>" SelectCommand="SELECT [nombre] FROM [tbl_estrato]"></asp:SqlDataSource>
                                         </div>
 
                                         <div class="form-outline mb-2">
-                                            <asp:DropDownList ID="ddl_sexo" runat="server" class="form-control form-control-sm" placeholder="Gender"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddl_sexo" runat="server" class="form-control form-control-sm" placeholder="Gender" DataSourceID="sexo" DataTextField="nombre" DataValueField="nombre"></asp:DropDownList>
+                                            <asp:SqlDataSource ID="sexo" runat="server" ConnectionString="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString %>" SelectCommand="SELECT [nombre] FROM [tbl_sexo]"></asp:SqlDataSource>
                                         </div>
 
                                         <div class="form-outline mb-2">
@@ -71,7 +73,7 @@
                                                 <asp:Button ID="btn_guardar" class="btn btn-dark btn-md mr-2" runat="server" Text="Guardar" />
                                                 <asp:Button ID="btn_consultar" class="btn btn-dark btn-md mr-2" runat="server" Text="Consultar" />
                                                 <asp:Button ID="btn_actualizar" class="btn btn-dark btn-md mr-2" runat="server" Text="Actualizar" />
-                                                <asp:Button ID="btn_nuevo" class="btn btn-dark btn-md" runat="server" Text="Nuevo" />
+                                                <asp:Button ID="btn_nuevo" class="btn btn-dark btn-md" runat="server" Text="Nuevo" OnClick="btn_nuevo_Click" />
                                             </div>
                                         </div>
 
