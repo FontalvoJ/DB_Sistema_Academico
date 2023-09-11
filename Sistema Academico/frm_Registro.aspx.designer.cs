@@ -87,13 +87,13 @@ namespace Sistema_Academico
         protected global::System.Web.UI.WebControls.DropDownList ddl_estrato;
 
         /// <summary>
-        /// Control estrato.
+        /// Control sqlDataSourceEstrato.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource estrato;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlDataSourceEstrato;
 
         /// <summary>
         /// Control ddl_sexo.
@@ -105,13 +105,13 @@ namespace Sistema_Academico
         protected global::System.Web.UI.WebControls.DropDownList ddl_sexo;
 
         /// <summary>
-        /// Control sexo.
+        /// Control sqlDataSourceSexo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sexo;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlDataSourceSexo;
 
         /// <summary>
         /// Control txt_observacion.

@@ -55,14 +55,16 @@
                                         </div>
 
                                         <div class="form-outline mb-2">
-                                            <asp:DropDownList ID="ddl_estrato" runat="server" class="form-control form-control-sm" placeholder="Stratum" DataSourceID="estrato" DataTextField="nombre" DataValueField="nombre"></asp:DropDownList>
-                                            <asp:SqlDataSource ID="estrato" runat="server" ConnectionString="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString %>" ProviderName="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString.ProviderName %>" SelectCommand="SELECT [nombre] FROM [tbl_estrato]"></asp:SqlDataSource>
+                                            <asp:DropDownList ID="ddl_estrato" runat="server" class="form-control form-control-sm" DataTextField="nombre" DataValueField="pkcodigo" DataSourceID="sqlDataSourceEstrato"></asp:DropDownList>
+                                            <asp:SqlDataSource ID="sqlDataSourceEstrato" runat="server" ConnectionString="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString %>" ProviderName="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString.ProviderName %>" SelectCommand="SELECT [pkcodigo], [nombre] FROM [tbl_estrato]"></asp:SqlDataSource>
                                         </div>
 
                                         <div class="form-outline mb-2">
-                                            <asp:DropDownList ID="ddl_sexo" runat="server" class="form-control form-control-sm" placeholder="Gender" DataSourceID="sexo" DataTextField="nombre" DataValueField="nombre"></asp:DropDownList>
-                                            <asp:SqlDataSource ID="sexo" runat="server" ConnectionString="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString %>" SelectCommand="SELECT [nombre] FROM [tbl_sexo]"></asp:SqlDataSource>
+                                            <asp:DropDownList ID="ddl_sexo" runat="server" class="form-control form-control-sm" DataTextField="nombre" DataValueField="pkcodigo" DataSourceID="sqlDataSourceSexo"></asp:DropDownList>
+                                            <asp:SqlDataSource ID="sqlDataSourceSexo" runat="server" ConnectionString="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString %>" ProviderName="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString.ProviderName %>" SelectCommand="SELECT [pkcodigo], [nombre] FROM [tbl_sexo]"></asp:SqlDataSource>
                                         </div>
+
+
 
                                         <div class="form-outline mb-2">
                                             <asp:TextBox ID="txt_observacion" runat="server" class="form-control form-control-sm" placeholder="Observations"></asp:TextBox>
