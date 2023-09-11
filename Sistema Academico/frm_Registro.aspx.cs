@@ -18,5 +18,10 @@ namespace Sistema_Academico
         {
 
         }
+
+        protected void btn_guardar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

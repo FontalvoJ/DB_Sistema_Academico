@@ -87,6 +87,15 @@ namespace Sistema_Academico
         protected global::System.Web.UI.WebControls.DropDownList ddl_estrato;
 
         /// <summary>
+        /// Control estrato.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource estrato;
+
+        /// <summary>
         /// Control ddl_sexo.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace Sistema_Academico
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_sexo;
+
+        /// <summary>
+        /// Control sexo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sexo;
 
         /// <summary>
         /// Control txt_observacion.
@@ -139,5 +157,14 @@ namespace Sistema_Academico
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_nuevo;
+
+        /// <summary>
+        /// Control lbl_mensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_mensaje;
     }
 }

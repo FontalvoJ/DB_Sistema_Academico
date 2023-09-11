@@ -22,8 +22,8 @@
                                 <img src="https://images.pexels.com/photos/5088188/pexels-photo-5088188.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                                     alt="background image" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                             </div>
-                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                                <div class="card-body p-4 p-lg-5 text-black">
+                            <div class="col-md-1 col-lg-1 d-flex align-items-center">
+                                <div class="card-body p-3 p-lg-3 text-black">
 
 
 
@@ -70,14 +70,16 @@
 
                                         <div class="pt-1 mb-4">
                                             <div class="btn-group" role="group">
-                                                <asp:Button ID="btn_guardar" class="btn btn-dark btn-md mr-2" runat="server" Text="Guardar" />
+                                                <asp:Button ID="btn_guardar" class="btn btn-dark btn-md mr-2" runat="server" Text="Guardar" OnClick="btn_guardar_Click" />
                                                 <asp:Button ID="btn_consultar" class="btn btn-dark btn-md mr-2" runat="server" Text="Consultar" />
                                                 <asp:Button ID="btn_actualizar" class="btn btn-dark btn-md mr-2" runat="server" Text="Actualizar" />
                                                 <asp:Button ID="btn_nuevo" class="btn btn-dark btn-md" runat="server" Text="Nuevo" OnClick="btn_nuevo_Click" />
                                             </div>
                                         </div>
 
-
+                                        <div class="form-outline mb-2">
+                                            <asp:Label ID="lbl_mensaje" runat="server" Text="" class="form-control form-control-sm"></asp:Label>
+                                        </div>
                                     </form>
 
                                 </div>
