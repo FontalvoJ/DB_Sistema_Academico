@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Sistema Academico"
   ],
-  "SelectedNode": "\\Sistema Academico.sln",
+  "SelectedNode": "\\Sistema Academico\\cls_conexion.cs",
   "PreviewInSolutionExplorer": false
 }

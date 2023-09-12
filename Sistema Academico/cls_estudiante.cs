@@ -46,7 +46,51 @@ namespace Sistema_Academico
                 str_mensaje = "Error: " + ex.Message;
             }
 
+
         }
+
+
+        public void fnt_consultar(string id)
+        {
+            try
+            {
+                cls_conexion objConecta = new cls_conexion();
+                SqlCommand cmd = new SqlCommand("sp_consultarestudiante", objConecta.connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                objConecta.connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    // Llena los campos de la instancia con los datos obtenidos
+                    this.str_nombre = reader["nombre"].ToString();
+                    this.str_contacto = reader["contacto"].ToString();
+                    this.str_correo = reader["correo"].ToString();
+                    this.str_direccion = reader["direccion"].ToString();
+                    this.str_acudiente = reader["acudiente"].ToString();
+                    this.int_estrato = Convert.ToInt32(reader["fkcodigo_estrato"]);
+                    this.int_sexo = Convert.ToInt32(reader["fkcodigo_sexo"]);
+                    this.str_observaciones = reader["observaciones"].ToString();
+                    str_mensaje = "Consulta exitosa";
+                }
+                else
+                {
+                    str_mensaje = "Estudiante no encontrado";
+                }
+
+                reader.Close();
+                objConecta.connection.Close();
+            }
+            catch (Exception ex)
+            {
+                str_mensaje = "Error: " + ex.Message;
+            }
+        }
+
+
+
+
         public string getMensaje() { return this.str_mensaje;}
         public string getNombre() { return this.str_nombre; }
         public string getContacto() { return this.str_contacto; }
