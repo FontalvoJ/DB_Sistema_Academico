@@ -56,12 +56,12 @@
 
                                         <div class="form-outline mb-2">
                                             <asp:DropDownList ID="ddl_estrato" runat="server" class="form-control form-control-sm" DataTextField="nombre" DataValueField="pkcodigo" DataSourceID="sqlDataSourceEstrato"></asp:DropDownList>
-                                            <asp:SqlDataSource ID="sqlDataSourceEstrato" runat="server" ConnectionString="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString %>" ProviderName="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString.ProviderName %>" SelectCommand="SELECT [pkcodigo], [nombre] FROM [tbl_estrato]"></asp:SqlDataSource>
+                                            <asp:SqlDataSource ID="sqlDataSourceEstrato" runat="server" ConnectionString="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString %>" SelectCommand="SELECT [pkcodigo], [nombre] FROM [tbl_estrato]"></asp:SqlDataSource>
                                         </div>
 
                                         <div class="form-outline mb-2">
                                             <asp:DropDownList ID="ddl_sexo" runat="server" class="form-control form-control-sm" DataTextField="nombre" DataValueField="pkcodigo" DataSourceID="sqlDataSourceSexo"></asp:DropDownList>
-                                            <asp:SqlDataSource ID="sqlDataSourceSexo" runat="server" ConnectionString="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString %>" ProviderName="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString.ProviderName %>" SelectCommand="SELECT [pkcodigo], [nombre] FROM [tbl_sexo]"></asp:SqlDataSource>
+                                            <asp:SqlDataSource ID="sqlDataSourceSexo" runat="server" ConnectionString="<%$ ConnectionStrings:dbs_sistema_academicoConnectionString %>" SelectCommand="SELECT [pkcodigo], [nombre] FROM [tbl_sexo]"></asp:SqlDataSource>
                                         </div>
 
 
@@ -74,7 +74,7 @@
                                             <div class="btn-group" role="group">
                                                 <asp:Button ID="btn_guardar" class="btn btn-dark btn-md mr-2" runat="server" Text="Guardar" OnClick="btn_guardar_Click" />
                                                 <asp:Button ID="btn_consultar" class="btn btn-dark btn-md mr-2" runat="server" Text="Consultar" OnClick="btn_consultar_Click" />
-                                                <asp:Button ID="btn_actualizar" class="btn btn-dark btn-md mr-2" runat="server" Text="Actualizar" />
+                                                <asp:Button ID="btn_actualizar" class="btn btn-dark btn-md mr-2" runat="server" Text="Actualizar"  />
                                                 <asp:Button ID="btn_nuevo" class="btn btn-dark btn-md" runat="server" Text="Nuevo" OnClick="btn_nuevo_Click" />
                                             </div>
                                         </div>

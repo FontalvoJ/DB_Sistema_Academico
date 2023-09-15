@@ -49,44 +49,53 @@ namespace Sistema_Academico
 
         }
 
-
-        public void fnt_consultar(string id)
+        public void fnt_consultar(String id)
         {
             try
             {
                 cls_conexion objConecta = new cls_conexion();
-                SqlCommand cmd = new SqlCommand("sp_consultarestudiante", objConecta.connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", id);
+                SqlCommand con = new SqlCommand("sp_consultarestudiante", objConecta.connection);
+                con.CommandType = CommandType.StoredProcedure;
+                con.Parameters.AddWithValue("@id", id);
                 objConecta.connection.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
+                SqlDataReader reader = con.ExecuteReader();
 
-                if (reader.Read())
+                while (reader.Read())
                 {
-                    // Llena los campos de la instancia con los datos obtenidos
-                    this.str_nombre = reader["nombre"].ToString();
-                    this.str_contacto = reader["contacto"].ToString();
-                    this.str_correo = reader["correo"].ToString();
-                    this.str_direccion = reader["direccion"].ToString();
-                    this.str_acudiente = reader["acudiente"].ToString();
-                    this.int_estrato = Convert.ToInt32(reader["fkcodigo_estrato"]);
-                    this.int_sexo = Convert.ToInt32(reader["fkcodigo_sexo"]);
-                    this.str_observaciones = reader["observaciones"].ToString();
-                    str_mensaje = "Consulta exitosa";
-                }
-                else
-                {
-                    str_mensaje = "Estudiante no encontrado";
+                    // Aquí puedes procesar los resultados directamente o imprimirlos como desees.
+                    // Por ejemplo, puedes asignarlos a las propiedades de tu clase o imprimirlos.
+                    str_nombre = reader["nombre"].ToString();
+                    str_contacto = reader["contacto"].ToString();
+                    str_correo = reader["correo"].ToString();
+                    str_direccion = reader["direccion"].ToString();
+                    str_acudiente = reader["acudiente"].ToString();
+
+                    // Verificar si el valor del estrato es convertible a un entero.
+                    if (int.TryParse(reader["fkcodigo_tblestrato"].ToString(), out int estratoValue))
+                    {
+                        int_estrato = estratoValue;
+                    }
+                    else
+                    {
+                        // Maneja el caso en el que el valor no sea convertible a un entero.
+                        // Puedes asignar un valor predeterminado o tomar la acción adecuada.
+                        int_estrato = -1; // Por ejemplo, asignar -1 como valor predeterminado.
+                    }
+
+                    int_sexo = Convert.ToInt32(reader["fkcodigo_tblsexo"]);
+                    str_observaciones = reader["observaciones"].ToString();
                 }
 
-                reader.Close();
                 objConecta.connection.Close();
+                str_mensaje = "Consulta exitosa";
             }
             catch (Exception ex)
             {
                 str_mensaje = "Error: " + ex.Message;
+               
             }
         }
+
 
 
 

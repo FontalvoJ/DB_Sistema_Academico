@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
+
 
 namespace Sistema_Academico
 {
@@ -49,35 +52,56 @@ namespace Sistema_Academico
             }
         }
 
-        protected void btn_consultar_Click(object sender, EventArgs e) {
+        protected void btn_consultar_Click(object sender, EventArgs e)
+        {
 
-            // Obtener el ID del estudiante desde un control de entrada (por ejemplo, un TextBox)
-            string idEstudiante = txt_id.Text;
+            // Obtén el valor del ID que se debe consultar desde el TextBox txtId.
+            string id = txt_id.Text;
 
-            // Crear una instancia de la clase cls_estudiante
-            cls_estudiante objEstudiante = new cls_estudiante();
-
-            // Llamar al método fnt_consultar para obtener los datos del estudiante
-            objEstudiante.fnt_consultar(idEstudiante);
+            // Crea una instancia de tu clase cls_estudiante.
+            cls_estudiante Objestudiante = new cls_estudiante();
 
 
-            // Mostrar los datos en los controles de tu formulario
-            txt_nombre.Text = objEstudiante.getNombre();
-            txt_contacto.Text = objEstudiante.getContacto();
-            txt_correo.Text = objEstudiante.getCorreo();
-            txt_direccion.Text = objEstudiante.getDireccion();
-            txt_acudiente.Text = objEstudiante.getAcudiente();
 
-            // Configurar el valor seleccionado en las listas desplegables
-            ddl_sexo.SelectedValue = objEstudiante.getSexo().ToString();
-            ddl_estrato.SelectedValue = objEstudiante.getEstrato().ToString();
+            // Llama al método fnt_consultar para realizar la consulta.
+            Objestudiante.fnt_consultar(id);
 
-            txt_observacion.Text = objEstudiante.getObservaciones();
+            // Accede a los resultados y mensajes de estado desde la instancia de cls_estudiante.
 
-            // Puedes mostrar un mensaje de éxito o error en una etiqueta o MessageBox
-            lbl_mensaje.Text = objEstudiante.getMensaje();
+            // Actualiza el mensaje en la etiqueta lblMensaje.
+            lbl_mensaje.Text = Objestudiante.getMensaje();
+
+            // Actualiza los valores en las etiquetas correspondientes.
+            txt_nombre.Text = Objestudiante.getNombre();
+            txt_contacto.Text = Objestudiante.getContacto();
+            txt_correo.Text = Objestudiante.getCorreo();
+            txt_direccion.Text = Objestudiante.getDireccion();
+            txt_acudiente.Text = Objestudiante.getAcudiente();
+            txt_observacion.Text = Objestudiante.getObservaciones();
+
+            // El valor del estrato es un DropDownList, así que debes establecerlo según el resultado.
+            string estratoValue = Objestudiante.getEstrato().ToString();
+            ListItem estratoItem = ddl_estrato.Items.FindByValue(estratoValue);
+            if (estratoItem != null)
+            {
+                ddl_estrato.SelectedValue = estratoValue;
+            }
+            
+
+            // El valor del sexo es un DropDownList, de manera similar, debes establecerlo según el resultado.
+            string sexoValue = Objestudiante.getSexo().ToString();
+            ListItem sexoItem = ddl_sexo.Items.FindByValue(sexoValue);
+            if (sexoItem != null)
+            {
+                ddl_sexo.SelectedValue = sexoValue;
+            }
+      
+        }
+
+
+
+
 
 
         }
-    }
 }

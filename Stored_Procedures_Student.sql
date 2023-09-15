@@ -23,23 +23,28 @@ BEGIN
 END
 
 
-USE dbs_sistema_academico
-GO
-
--- =============================================
--- Author:      <Author, Jose>
--- Create date: <Create Date, 10 de septiembre 2023>
--- Description: <Description, Consultar Estudiante por pkid>
--- =============================================
-CREATE PROCEDURE sp_consultarestudiante
+use dbs_sistema_academico
+go
+ALTER PROCEDURE sp_consultarestudiante
     @id varchar(10)
 AS
 BEGIN
-    SELECT * FROM tbl_estudiantes WHERE pkid = @id
+    DECLARE @buscar int 
+    SELECT @buscar = COUNT(*) FROM tbl_estudiantes WHERE pkid = @id
+
+    -- Agregar un mensaje de registro para depuración
+    PRINT 'Valor de @buscar: ' + CAST(@buscar AS varchar(10))
+
+    IF @buscar = 1 
+    BEGIN 
+        PRINT 'La persona ya está registrada'
+    END
+    ELSE
+    BEGIN 
+        SELECT * FROM tbl_estudiantes WHERE pkid = @id
+    END
 END
 
-USE dbs_sistema_academico
-GO
 
 -- =============================================
 -- Author:      <Author, Jose>
