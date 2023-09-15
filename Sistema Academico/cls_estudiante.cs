@@ -71,7 +71,7 @@ namespace Sistema_Academico
                     str_acudiente = reader["acudiente"].ToString();
 
                     // Verificar si el valor del estrato es convertible a un entero.
-                    if (int.TryParse(reader["fkcodigo_tblestrato"].ToString(), out int estratoValue))
+                    if (int.TryParse(reader["fkcodigo_tbl_estrato"].ToString(), out int estratoValue))
                     {
                         int_estrato = estratoValue;
                     }
@@ -82,7 +82,7 @@ namespace Sistema_Academico
                         int_estrato = -1; // Por ejemplo, asignar -1 como valor predeterminado.
                     }
 
-                    int_sexo = Convert.ToInt32(reader["fkcodigo_tblsexo"]);
+                    int_sexo = Convert.ToInt32(reader["fkcodigo_tbl_sexo"]);
                     str_observaciones = reader["observaciones"].ToString();
                 }
 

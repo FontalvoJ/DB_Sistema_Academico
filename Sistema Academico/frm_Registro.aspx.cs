@@ -19,6 +19,17 @@ namespace Sistema_Academico
 
         protected void btn_nuevo_Click(object sender, EventArgs e)
         {
+            txt_id.Text = string.Empty;
+            txt_id.Focus();
+            txt_nombre.Text = string.Empty;
+            txt_contacto.Text = string.Empty;
+            txt_correo.Text = string.Empty;
+            txt_direccion.Text = string.Empty;
+            txt_acudiente.Text = string.Empty;
+            ddl_estrato.SelectedIndex = 0; 
+            ddl_sexo.SelectedIndex = 0; // Establece el valor predeterminado en el DropDownList
+            txt_observacion.Text = string.Empty;
+            lbl_mensaje.Text = string.Empty;
 
         }
 
