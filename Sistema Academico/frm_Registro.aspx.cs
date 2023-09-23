@@ -109,10 +109,34 @@ namespace Sistema_Academico
       
         }
 
+        protected void btn_actualizar_Click(object sender, EventArgs e)
+        {
+            // Obtén los valores actualizados del formulario
+            string id = txt_id.Text;
+            string nombre = txt_nombre.Text;
+            string contacto = txt_contacto.Text;
+            string correo = txt_correo.Text;
+            string direccion = txt_direccion.Text;
+            string acudiente = txt_acudiente.Text;
 
+            if (int.TryParse(ddl_estrato.SelectedValue, out int estrato) && int.TryParse(ddl_sexo.SelectedValue, out int sexo))
+            {
+                string observaciones = txt_observacion.Text;
 
+                // Crea una instancia de tu clase cls_estudiante
+                cls_estudiante objEstudiante = new cls_estudiante();
 
+                // Llama al método fnt_actualizar para actualizar los datos del estudiante
+                objEstudiante.fnt_actualizar(id, nombre, contacto, correo, direccion, acudiente, estrato, sexo, observaciones);
 
-
+                // Actualiza el mensaje en la etiqueta lbl_mensaje
+                lbl_mensaje.Text = objEstudiante.getMensaje();
+            }
+            else
+            {
+                lbl_mensaje.Text = "Error: Los valores de estrato y sexo no son números enteros válidos.";
+            }
         }
+
+    }
 }

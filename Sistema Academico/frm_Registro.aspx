@@ -74,7 +74,7 @@
                                             <div class="btn-group" role="group">
                                                 <asp:Button ID="btn_guardar" class="btn btn-dark btn-md mr-2" runat="server" Text="Guardar" OnClick="btn_guardar_Click" />
                                                 <asp:Button ID="btn_consultar" class="btn btn-dark btn-md mr-2" runat="server" Text="Consultar" OnClick="btn_consultar_Click" />
-                                                <asp:Button ID="btn_actualizar" class="btn btn-dark btn-md mr-2" runat="server" Text="Actualizar"  />
+                                                <asp:Button ID="btn_actualizar" class="btn btn-dark btn-md mr-2" runat="server" Text="Actualizar" OnClick="btn_actualizar_Click"  />
                                                 <asp:Button ID="btn_nuevo" class="btn btn-dark btn-md" runat="server" Text="Nuevo" OnClick="btn_nuevo_Click" />
                                             </div>
                                         </div>

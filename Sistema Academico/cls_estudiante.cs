@@ -96,6 +96,35 @@ namespace Sistema_Academico
             }
         }
 
+        public void fnt_actualizar(string id, string nombre, string contacto, string correo, string direccion, string acudiente, int estrato, int sexo, string observaciones)
+        {
+            try
+            {
+                cls_conexion objConecta = new cls_conexion();
+                SqlCommand con = new SqlCommand("sp_actualizarestudiante", objConecta.connection);
+                con.CommandType = CommandType.StoredProcedure;
+                con.Parameters.AddWithValue("@id", id);
+                con.Parameters.AddWithValue("@nombre", nombre);
+                con.Parameters.AddWithValue("@contacto", contacto);
+                con.Parameters.AddWithValue("@correo", correo);
+                con.Parameters.AddWithValue("@direccion", direccion);
+                con.Parameters.AddWithValue("@acudiente", acudiente);
+                con.Parameters.AddWithValue("@fkcodigo_estrato", estrato);
+                con.Parameters.AddWithValue("@fkcodigo_sexo", sexo);
+                con.Parameters.AddWithValue("@observaciones", observaciones);
+                objConecta.connection.Open();
+
+                // Ejecutar el procedimiento almacenado
+                con.ExecuteNonQuery();
+
+                objConecta.connection.Close();
+                str_mensaje = "Actualización exitosa";
+            }
+            catch (Exception ex)
+            {
+                str_mensaje = "Error: " + ex.Message;
+            }
+        }
 
 
 
