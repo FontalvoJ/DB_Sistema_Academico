@@ -40,7 +40,7 @@
                                         </div>
 
                                         <div class="form-outline mb-2">
-                                            <asp:TextBox ID="txt_subtotal" runat="server" class="form-control form-control-sm" placeholder="Contact"></asp:TextBox>
+                                            <asp:TextBox ID="txt_subtotal" runat="server" class="form-control form-control-sm" placeholder="Subtotal"></asp:TextBox>
                                         </div>
 
                                         <div class="form-outline mb-2">
@@ -48,7 +48,7 @@
                                         </div>
 
                                         <div class="form-outline mb-2">
-                                            <asp:TextBox ID="txt_total" runat="server" class="form-control form-control-sm" placeholder="Contact"></asp:TextBox>
+                                            <asp:Label ID="lbl_total" runat="server" class="form-control form-control-sm" Text=""></asp:Label>
                                         </div>
 
                                         <div class="pt-1 mb-4">

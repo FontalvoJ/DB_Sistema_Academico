@@ -17,28 +17,35 @@ namespace Sistema_Academico
         private float flt_total;
 
 
-        public void fnt_agregar(string idEstudiante, DateTime fecha, float subtotal, float iva, float total)
+        public bool fnt_agregarmatricula(string idEstudiante, DateTime fecha, float subtotal, float iva)
         {
             try
             {
                 cls_conexion objConecta = new cls_conexion();
-                SqlCommand con = new SqlCommand("sp_registrarmatricula", objConecta.connection);
+                SqlCommand con = new SqlCommand("sp_registrarmat", objConecta.connection);
                 con.CommandType = CommandType.StoredProcedure;
                 con.Parameters.AddWithValue("@fkid_tbl_estudiantes", idEstudiante);
                 con.Parameters.AddWithValue("@fecha", fecha);
                 con.Parameters.AddWithValue("@subtotal", subtotal);
                 con.Parameters.AddWithValue("@iva", iva);
-                con.Parameters.AddWithValue("@total", total);
                 objConecta.connection.Open();
                 con.ExecuteNonQuery();
                 objConecta.connection.Close();
                 str_mensaje = "Registro de matrícula exitoso";
+
+                float total = subtotal + (subtotal * (iva / 100));
+                flt_total = total;
+
+                return true; 
             }
             catch (Exception ex)
             {
                 str_mensaje = "Error al registrar matrícula: " + ex.Message;
+                return false; 
             }
         }
+
+
 
         public string getMensaje() { return this.str_mensaje; }
 

@@ -14,21 +14,6 @@ namespace Sistema_Academico
 
         }
 
-        protected void btn_guardar_Click(object sender, EventArgs e)
-        {
-            cls_matricula objMatricula = new cls_matricula();
-
-            string idEstudiante = txt_idestudiante.Text; 
-            DateTime fecha = DateTime.Parse(txt_fecha.Text); 
-            float subtotal = float.Parse(txt_subtotal.Text); 
-            float iva = float.Parse(txt_iva.Text); 
-            float total = float.Parse(txt_total.Text); 
-
-           
-            objMatricula.fnt_agregar(idEstudiante, fecha, subtotal, iva, total);
-
-            lbl_mensaje.Text = objMatricula.getMensaje();
-        }
 
         protected void btn_guardar_Click1(object sender, EventArgs e)
         {
@@ -38,12 +23,33 @@ namespace Sistema_Academico
             DateTime fecha = DateTime.Parse(txt_fecha.Text);
             float subtotal = float.Parse(txt_subtotal.Text);
             float iva = float.Parse(txt_iva.Text);
-            float total = float.Parse(txt_total.Text);
 
+            // Llama al método fnt_agregarmatricula y verifica si se realizó con éxito.
+            bool registroExitoso = objMatricula.fnt_agregarmatricula(idEstudiante, fecha, subtotal, iva);
 
-            objMatricula.fnt_agregar(idEstudiante, fecha, subtotal, iva, total);
+            if (registroExitoso)
+            {
+                lbl_mensaje.Text = objMatricula.getMensaje();
 
-            lbl_mensaje.Text = objMatricula.getMensaje();
+                float total = objMatricula.getTotal();
+                lbl_total.Text = total.ToString();
+            }
+            else
+            {
+                
+                lbl_mensaje.Text = objMatricula.getMensaje();
+            }
+        }
+
+        protected void btn_nuevo_Click(object sender, EventArgs e)
+        {
+            txt_idestudiante.Text = string.Empty;
+            txt_idestudiante.Focus();
+            txt_fecha.Text = string.Empty;
+            txt_subtotal.Text = string.Empty;
+            txt_iva.Text = string.Empty;
+            lbl_total.Text = string.Empty;
+            lbl_mensaje.Text = string.Empty;
         }
     }
 }
