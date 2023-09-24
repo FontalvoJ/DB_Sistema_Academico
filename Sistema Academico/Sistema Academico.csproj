@@ -67,19 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="frm_calificaciones.aspx" />
+    <Content Include="frm_Matricula.aspx" />
     <Content Include="frm_Registro.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cls_conexion.cs" />
     <Compile Include="cls_estudiante.cs" />
-    <Compile Include="frm_calificaciones.aspx.cs">
-      <DependentUpon>frm_calificaciones.aspx</DependentUpon>
+    <Compile Include="cls_matricula.cs" />
+    <Compile Include="frm_Matricula.aspx.cs">
+      <DependentUpon>frm_Matricula.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frm_calificaciones.aspx.designer.cs">
-      <DependentUpon>frm_calificaciones.aspx</DependentUpon>
+    <Compile Include="frm_Matricula.aspx.designer.cs">
+      <DependentUpon>frm_Matricula.aspx</DependentUpon>
     </Compile>
     <Compile Include="frm_Registro.aspx.cs">
       <DependentUpon>frm_Registro.aspx</DependentUpon>
